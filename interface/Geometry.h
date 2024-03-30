@@ -113,8 +113,8 @@ public:
     double beta  =  0.00;
     double gamma =  0.00;
     double z_dut = -0.75;
-    double xBinSize = 0.5;
-    double yBinSize = 0.5;
+    double xBinSize = 0.12;
+    double yBinSize = 0.12;
     double xmin = -10.00; // Sensor's local frame
     double xmax =  10.00; // Sensor's local frame
     double ymin =  -6.00; // Sensor's local frame

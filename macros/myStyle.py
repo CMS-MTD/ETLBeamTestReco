@@ -65,7 +65,7 @@ def ForceStyle():
     ROOT.gStyle.SetPadTickX(1)
     ROOT.gStyle.SetPadTickY(1)
 
-    ROOT.gStyle.SetTextFont(font)
+    # ROOT.gStyle.SetTextFont(font)
     ROOT.gStyle.SetLabelFont(font,"x")
     ROOT.gStyle.SetTitleFont(font,"x")
     ROOT.gStyle.SetLabelFont(font,"y")

@@ -29,7 +29,7 @@ class HistoInfo:
 
 parser = optparse.OptionParser("usage: %prog [options]\n")
 parser.add_option('-D', dest='Dataset', default = "", help="Dataset, which determines filepath")
-parser.add_option('-z','--zmin', dest='zmin', default =  50.0, help="Set min TimeRes value in final plot")
+parser.add_option('-z','--zmin', dest='zmin', default =  70.0, help="Set min TimeRes value in final plot")
 parser.add_option('-Z','--zmax', dest='zmax', default = 100.0, help="Set max TimeRes value in final plot")
 parser.add_option('-d', dest='debugMode', action='store_true', default = False, help="Run debug mode")
 
@@ -142,11 +142,13 @@ for info in all_histoInfos:
     info.th2.SetMinimum(zmin)
     info.th2.SetMaximum(zmax)
 
-    info.th2.SetMarkerColor(kRed);
-    info.th2.Draw("COLZ")
+    info.th2.SetMarkerSize(1.0)
+    info.th2.SetMarkerColor(kBlack)
+    gStyle.SetPaintTextFormat(".1f");
+    info.th2.Draw("COLZ TEXT")
 
-    myStyle.BeamInfo()
-    myStyle.SensorInfoSmart(dataset,2.0*myStyle.GetMargin())
+    #myStyle.BeamInfo()
+    #myStyle.SensorInfoSmart(dataset,2.0*myStyle.GetMargin())
     canvas.SetRightMargin(3.0*myStyle.GetMargin())
     canvas.SaveAs(outdir+dataset+"TimeRes_vs_xy_"+info.outHistoName+".gif")
     canvas.SaveAs(outdir+dataset+"TimeRes_vs_xy_"+info.outHistoName+".pdf")
