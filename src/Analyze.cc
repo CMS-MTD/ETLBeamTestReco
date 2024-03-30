@@ -1,7 +1,7 @@
 #define Analyze_cxx
-#include "TestbeamReco/interface/Analyze.h"
-#include "TestbeamReco/interface/Utility.h"
-#include "TestbeamReco/interface/NTupleReader.h"
+#include "ETLBeamTestReco/interface/Analyze.h"
+#include "ETLBeamTestReco/interface/Utility.h"
+#include "ETLBeamTestReco/interface/NTupleReader.h"
 
 #include <TH1D.h>
 #include <TH2D.h>
@@ -332,7 +332,7 @@ void Analyze::Loop(NTupleReader& tr, int maxevents)
         utility::fillHisto(pass,                   my_histos, "y", y);
 
         // --- Timing ---
-        utility::fillHisto(pass,                   my_histos, "Clock",Clock);
+        utility::fillHisto(pass && nhits>0,                   my_histos, "Clock",Clock);
         utility::fillHisto(pass,                   my_histos, "timePhotek",photekTime);
         utility::fillHisto(pass,                   my_histos, "timeDiff", photekTime);
 
@@ -348,7 +348,7 @@ void Analyze::Loop(NTupleReader& tr, int maxevents)
         // Plot ETROC histograms
         for(unsigned int i = 0; i < nhits; i++)
         {
-            auto goodETROCHit = totVec[i]>3 && nhits>0 && cal_code[i] > 150 && cal_code[i] < 180 && toaVec[i] > 7 && toaVec[i] < 11;
+            auto goodETROCHit = totVec[i]>3 && nhits>0 && cal_code[i] > 150 && cal_code[i] < 180 && Clock > 0.0 && Clock < 5.0;
             utility::fillHisto(pass,                   my_2d_histos, "row_vs_col", row[i],col[i]);
             utility::fillHisto(pass,                   my_histos, "cal", cal_code[i]);
             utility::fillHisto(pass,                   my_histos, "toa", toaVec[i]);
@@ -357,8 +357,8 @@ void Analyze::Loop(NTupleReader& tr, int maxevents)
 
             utility::fillHisto(goodETROCHit,      my_3d_histos, "dt_vs_row_col", row[i],col[i],dtVec[i]);
         }
-        utility::fillHisto(nhits <= 1,             my_2d_prof,   "efficiency_vs_xy_ETROC", x,y,nhits == 1);
-        utility::fillHisto(pass,                   my_3d_histos, "nhits_vs_xy", x,y,nhits>0);
+        utility::fillHisto(nhits <= 1 && Clock > 0.0 && Clock < 5.0,    my_2d_prof,   "efficiency_vs_xy_ETROC", x,y,nhits == 1);
+        utility::fillHisto(pass,                                      my_3d_histos, "nhits_vs_xy", x,y,nhits>0);
         
         // Fill wave form histos once
         if(plotWaveForm)

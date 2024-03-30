@@ -1,7 +1,7 @@
 #ifndef ETROC_H
 #define ETROC_H
 
-#include "TestbeamReco/interface/Utility.h"
+#include "ETLBeamTestReco/interface/Utility.h"
 
 class ETROC
 {

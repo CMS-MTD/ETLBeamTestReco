@@ -1,7 +1,7 @@
 #define InitialAnalyzer_cxx
-#include "TestbeamReco/interface/InitialAnalyzer.h"
-#include "TestbeamReco/interface/Utility.h"
-#include "TestbeamReco/interface/NTupleReader.h"
+#include "ETLBeamTestReco/interface/InitialAnalyzer.h"
+#include "ETLBeamTestReco/interface/Utility.h"
+#include "ETLBeamTestReco/interface/NTupleReader.h"
 
 #include <TH1D.h>
 #include <TH2D.h>

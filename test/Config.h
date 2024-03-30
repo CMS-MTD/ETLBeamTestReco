@@ -1,12 +1,12 @@
 #ifndef Confg_h
 #define Confg_h
 
-#include "TestbeamReco/interface/NTupleReader.h"
-#include "TestbeamReco/interface/Geometry.h"
-#include "TestbeamReco/interface/PrepNTupleVars.h"
-#include "TestbeamReco/interface/ETROC.h"
-#include "TestbeamReco/interface/Timing.h"
-#include "TestbeamReco/interface/Utility.h"
+#include "ETLBeamTestReco/interface/NTupleReader.h"
+#include "ETLBeamTestReco/interface/Geometry.h"
+#include "ETLBeamTestReco/interface/PrepNTupleVars.h"
+#include "ETLBeamTestReco/interface/ETROC.h"
+#include "ETLBeamTestReco/interface/Timing.h"
+#include "ETLBeamTestReco/interface/Utility.h"
 
 #include <iostream>
 #include <fstream>

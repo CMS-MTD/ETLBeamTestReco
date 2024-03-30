@@ -1,7 +1,7 @@
 #ifndef NTUPLE_READER_H
 #define NTUPLE_READER_H
 
-#include "TestbeamReco/interface/SATException.h"
+#include "ETLBeamTestReco/interface/SATException.h"
 
 #include "TLorentzVector.h"
 #include "TBranch.h"

@@ -1,7 +1,7 @@
 #ifndef MinTupleMaker_h
 #define MinTupleMaker_h
 
-#include "TestbeamReco/interface/NTupleReader.h"
+#include "ETLBeamTestReco/interface/NTupleReader.h"
 
 #include "TTree.h"
 #include "TFile.h"
