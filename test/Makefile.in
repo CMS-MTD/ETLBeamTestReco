@@ -10,8 +10,8 @@ LDFLAGS  = @LDFLAGS@
 WDIR    = .
 ODIR    = obj
 TDIR    = $(PWD)/../..
-IFWDIR  = $(TDIR)/TestbeamReco/interface
-SFWDIR  = $(TDIR)/TestbeamReco/src
+IFWDIR  = $(TDIR)/ETLBeamTestReco/interface
+SFWDIR  = $(TDIR)/ETLBeamTestReco/src
 
 # Enable the maximun warning
 CXXFLAGS += -Wall -Wextra -Wpedantic
