@@ -1,0 +1,7 @@
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4900_5050_0.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4900_5050_1.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4900_5050_2.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4900_5050_3.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4900_5050_4.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4900_5050_5.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4900_5050_6.root
