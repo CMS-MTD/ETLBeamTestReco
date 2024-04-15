@@ -148,6 +148,7 @@ void Analyze::InitHistos(NTupleReader& tr, const std::vector<std::vector<int>>& 
 
     //Global 3D histograms
     utility::makeHisto(my_3d_histos,"dt_vs_row_col", "; X [mm]; Y [MM]", 16,0,16, 16,0,16, 500,9.0,13.0);
+    utility::makeHisto(my_3d_histos,"dt_vs_xy", "; X [mm]; Y [MM]", std::round((xmax-xmin)/xBinSize),xmin,xmax, std::round((ymax-ymin)/yBinSize),ymin,ymax, 500,9.0,13.0);
     utility::makeHisto(my_3d_histos,"nhits_vs_xy", "; X [mm]; Y [MM]", std::round((xmax-xmin)/xBinSize),xmin,xmax, std::round((ymax-ymin)/yBinSize),ymin,ymax, 20, 0, 20);
     utility::makeHisto(my_3d_histos,"amplitude_vs_xy","; X [mm]; Y [mm]",std::round((xmax-xmin)/xBinSize),xmin,xmax, std::round((ymax-ymin)/yBinSize),ymin,ymax, 250,0,500);
     utility::makeHisto(my_3d_histos,"amplitude_vs_xy_tight","; X [mm]; Y [mm]",std::round((xmax-xmin)/xBinSize),xmin,xmax, std::round((ymax-ymin)/yBinSize),ymin,ymax, 250,0,500);
@@ -356,9 +357,10 @@ void Analyze::Loop(NTupleReader& tr, int maxevents)
             utility::fillHisto(pass,                   my_histos, "dt", dtVec[i]);
 
             utility::fillHisto(goodETROCHit,      my_3d_histos, "dt_vs_row_col", row[i],col[i],dtVec[i]);
+            utility::fillHisto(goodETROCHit,      my_3d_histos, "dt_vs_xy", x,y,dtVec[i]);
         }
         utility::fillHisto(nhits <= 1 && Clock > 0.0 && Clock < 5.0,    my_2d_prof,   "efficiency_vs_xy_ETROC", x,y,nhits == 1);
-        utility::fillHisto(pass,                                      my_3d_histos, "nhits_vs_xy", x,y,nhits>0);
+        utility::fillHisto(pass,                                        my_3d_histos, "nhits_vs_xy", x,y,nhits>0);
         
         // Fill wave form histos once
         if(plotWaveForm)

@@ -24,6 +24,8 @@ class HistoInfo:
         return f.Get(name)        
 
     def getTH2(self, th3, name):
+        #th3.RebinX(8)
+        #th3.RebinY(8)
         return th3.Project3D("yx").Clone(name)
 
 
@@ -49,7 +51,8 @@ else:
 outdir = myStyle.GetPlotsDir(outdir, "TimeRes/")
 
 all_histoInfos = [
-    HistoInfo("dt_vs_row_col", inputfile, "dt_vs_row_col"),
+    #HistoInfo("dt_vs_row_col", inputfile, "dt_vs_row_col"),
+    HistoInfo("dt_vs_xy", inputfile, "dt_vs_xy"),
 ]
 
 canvas = TCanvas("cv","cv",1000,800)
@@ -145,7 +148,8 @@ for info in all_histoInfos:
     info.th2.SetMarkerSize(1.0)
     info.th2.SetMarkerColor(kBlack)
     gStyle.SetPaintTextFormat(".1f");
-    info.th2.Draw("COLZ TEXT")
+    #info.th2.Draw("COLZ TEXT")
+    info.th2.Draw("COLZ")
 
     #myStyle.BeamInfo()
     #myStyle.SensorInfoSmart(dataset,2.0*myStyle.GetMargin())
