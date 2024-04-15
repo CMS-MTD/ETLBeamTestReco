@@ -1,0 +1,3 @@
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_2299_2359_0.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_2299_2359_1.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_2299_2359_2.root

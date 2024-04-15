@@ -1,0 +1,14 @@
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_0.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_10.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_11.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_12.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_13.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_1.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_2.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_3.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_4.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_5.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_6.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_7.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_8.root
+/eos/uscms/store/user/ahayrape/DESY_TEST_BEAM/ETROC_Telescope_data/Run_4600_4900_9.root
