@@ -24,8 +24,8 @@ class HistoInfo:
         return f.Get(name)        
 
     def getTH2(self, th3, name):
-        #th3.RebinX(8)
-        #th3.RebinY(8)
+        th3.RebinX(8)
+        th3.RebinY(8)
         return th3.Project3D("yx").Clone(name)
 
 

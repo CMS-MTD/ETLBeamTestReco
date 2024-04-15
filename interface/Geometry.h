@@ -83,21 +83,81 @@ class ETL_Test_100V_1_Geometry: public DefaultGeometry
 // ETL_Test_100V_1
 {
 public:
-    // 
-    // Used lecroy scope channels 0-7
-    // Scope channel 0-6 was AC channels, and scope channel 7 was the photek
-    // 
-    // |-----------|             -----
-    // | 0 0 0 0 0 |             |777|
-    // | 1 1 1 1 1 |             |777|
-    // | 2 2 2 2 2 |             -----
-    // | 3 3 3 3 3 |
-    // | 4 4 4 4 4 |
-    // | 5 5 5 5 5 |
-    // | 6 6 6 6 6 |
-    // |-----------|
-
     ETL_Test_100V_1_Geometry(const int v=0) : voltage(v){}
+    const int voltage;
+    std::map<int, std::vector<int>> indexToGeometryMap = {{0,{0,0}}, {1,{0,1}}, {2,{0,2}}, {3,{1,0}}};
+    std::vector<std::vector<int>> geometry = {{0,1,2}, {3}};
+    std::map<int, bool> acLGADChannelMap = {{0,true}, {1,true}, {2,true}, {3,false}};
+    std::map<int, double> amplitudeCorrectionFactor = {{0,1.0}, {1,1.0}, {2,1.0}, {3,1.0}};
+    std::map<int, double> timeCalibrationCorrection = {{0,1.0}, {1,1.0}, {2,1.0}, {3,1.0}};
+    double sensorCenter  = 0.45; // Lab-Tracker's frame ->  y_dut
+    double sensorCenterY = 1.50; // Lab-Tracker's frame -> -x_dut
+    std::vector<double> stripCenterXPosition = {1.492, 0.998, 0.491, -0.010};
+    int numLGADchannels = 7;
+    int photekIndex = 1;
+    double alpha = -0.29;
+    double beta  =  0.00;
+    double gamma =  0.00;
+    double z_dut = -0.75;
+    double xBinSize = 0.12;
+    double yBinSize = 0.12;
+    double xmin = -10.00; // Sensor's local frame
+    double xmax =  10.00; // Sensor's local frame
+    double ymin =  -6.00; // Sensor's local frame
+    double ymax =   6.00; // Sensor's local frame
+    double positionRecoMaxPoint = 1.0; // 0.71;
+    double photekSignalThreshold = 100.0; //in mV
+    double photekSignalMax = 1000.0; //in mV
+    double noiseAmpThreshold  = 0.0;
+    double signalAmpThreshold = 0.0;
+    int CFD_threshold = 50;
+    std::vector<double> positionRecoPar = {0.250000, -1.057035, -2.963484, 58.283739, -422.846674, 923.928427};
+    std::vector<std::vector<double>> sensorEdges = {{-1.8, -4.70}, {1.8, 4.70}}; // Sensor's local frame
+    std::vector<std::vector<double>> sensorEdgesTight = {{stripCenterXPosition[highGoodStripIndex], -4.6}, {stripCenterXPosition[lowGoodStripIndex], 4.6}}; // Sensor's local frame
+};
+
+class ETROC_BB_36_Geometry: public DefaultGeometry
+// ETROC_BB_36
+{
+public:
+    ETROC_BB_36_Geometry(const int v=0) : voltage(v){}
+    const int voltage;
+    std::map<int, std::vector<int>> indexToGeometryMap = {{0,{0,0}}, {1,{0,1}}, {2,{0,2}}, {3,{1,0}}};
+    std::vector<std::vector<int>> geometry = {{0,1,2}, {3}};
+    std::map<int, bool> acLGADChannelMap = {{0,true}, {1,true}, {2,true}, {3,false}};
+    std::map<int, double> amplitudeCorrectionFactor = {{0,1.0}, {1,1.0}, {2,1.0}, {3,1.0}};
+    std::map<int, double> timeCalibrationCorrection = {{0,1.0}, {1,1.0}, {2,1.0}, {3,1.0}};
+    double sensorCenter  = 0.45; // Lab-Tracker's frame ->  y_dut
+    double sensorCenterY = 1.50; // Lab-Tracker's frame -> -x_dut
+    std::vector<double> stripCenterXPosition = {1.492, 0.998, 0.491, -0.010};
+    int numLGADchannels = 7;
+    int photekIndex = 1;
+    double alpha = -0.29;
+    double beta  =  0.00;
+    double gamma =  0.00;
+    double z_dut = -0.75;
+    double xBinSize = 0.12;
+    double yBinSize = 0.12;
+    double xmin = -10.00; // Sensor's local frame
+    double xmax =  10.00; // Sensor's local frame
+    double ymin =  -6.00; // Sensor's local frame
+    double ymax =   6.00; // Sensor's local frame
+    double positionRecoMaxPoint = 1.0; // 0.71;
+    double photekSignalThreshold = 100.0; //in mV
+    double photekSignalMax = 1000.0; //in mV
+    double noiseAmpThreshold  = 0.0;
+    double signalAmpThreshold = 0.0;
+    int CFD_threshold = 50;
+    std::vector<double> positionRecoPar = {0.250000, -1.057035, -2.963484, 58.283739, -422.846674, 923.928427};
+    std::vector<std::vector<double>> sensorEdges = {{-1.8, -4.70}, {1.8, 4.70}}; // Sensor's local frame
+    std::vector<std::vector<double>> sensorEdgesTight = {{stripCenterXPosition[highGoodStripIndex], -4.6}, {stripCenterXPosition[lowGoodStripIndex], 4.6}}; // Sensor's local frame
+};
+
+class ETROC_BB_37_Geometry: public DefaultGeometry
+// ETROC_BB_37
+{
+public:
+    ETROC_BB_37_Geometry(const int v=0) : voltage(v){}
     const int voltage;
     std::map<int, std::vector<int>> indexToGeometryMap = {{0,{0,0}}, {1,{0,1}}, {2,{0,2}}, {3,{1,0}}};
     std::vector<std::vector<int>> geometry = {{0,1,2}, {3}};

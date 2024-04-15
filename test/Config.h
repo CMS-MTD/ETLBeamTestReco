@@ -137,7 +137,9 @@ public:
         std::cout<<"Voltage: "<<voltage<<std::endl;
 
         //Setup Sensor Geometry 
-        if(filetag.find("ETL_Test_100V_1") != std::string::npos) registerGeometry(tr, ETL_Test_100V_1_Geometry(voltage));
+        if     (filetag.find("ETL_Test_100V_1") != std::string::npos) registerGeometry(tr, ETL_Test_100V_1_Geometry(voltage));
+        else if(filetag.find("ETROC_BB_36") != std::string::npos)     registerGeometry(tr, ETROC_BB_36_Geometry(voltage));
+        else if(filetag.find("ETROC_BB_37") != std::string::npos)     registerGeometry(tr, ETROC_BB_37_Geometry(voltage));
 	    else
         {
             registerGeometry(tr, DefaultGeometry(voltage));
