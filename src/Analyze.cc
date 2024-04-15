@@ -34,9 +34,9 @@ void Analyze::InitHistos(NTupleReader& tr, const std::vector<std::vector<int>>& 
     int xbins = 175;
     int ybins = 175;
 
-    int timeDiffNbin = 200; // 200
-    double timeDiffLow = -1.0;
-    double timeDiffHigh = 1.0;
+    int timeDiffNbin = 500; // 200
+    double timeDiffLow =   9.0;
+    double timeDiffHigh = 13.0;
     int timeDiffYnbin = 50;
 
     int    bvNbin = 500;
@@ -141,14 +141,15 @@ void Analyze::InitHistos(NTupleReader& tr, const std::vector<std::vector<int>>& 
     utility::makeHisto(my_histos,"y", "; Y_{track} [mm]; Events", 100,-5.5,5.5);
 
     //Global 2D histograms
+    utility::makeHisto(my_2d_histos,"dt_vs_BV","; BV [V]; #Delta t [ps]", bvNbin,bvLow,bvHigh, timeDiffNbin,timeDiffLow,timeDiffHigh);
     utility::makeHisto(my_2d_histos,"Amp1_vs_x", "; X [mm]; Amp1", std::round((xmax-xmin)/xBinSize),xmin,xmax, 250,0.0,500);
     utility::makeHisto(my_2d_histos,"Amp2_vs_x", "; X [mm]; Amp2", std::round((xmax-xmin)/xBinSize),xmin,xmax, 250,0.0,500);
     utility::makeHisto(my_2d_histos,"BaselineRMS12_vs_x", "; X [mm]; Noise Sum 12", std::round((xmax-xmin)/xBinSize),xmin,xmax, 40,0.0,10);
     utility::makeHisto(my_2d_histos,"row_vs_col", "; row; col", 16,0,16, 16,0,16);
 
     //Global 3D histograms
-    utility::makeHisto(my_3d_histos,"dt_vs_row_col", "; X [mm]; Y [MM]", 16,0,16, 16,0,16, 500,9.0,13.0);
-    utility::makeHisto(my_3d_histos,"dt_vs_xy", "; X [mm]; Y [MM]", std::round((xmax-xmin)/xBinSize),xmin,xmax, std::round((ymax-ymin)/yBinSize),ymin,ymax, 500,9.0,13.0);
+    utility::makeHisto(my_3d_histos,"dt_vs_row_col", "; X [mm]; Y [MM]", 16,0,16, 16,0,16, timeDiffNbin,timeDiffLow,timeDiffHigh);
+    utility::makeHisto(my_3d_histos,"dt_vs_xy", "; X [mm]; Y [MM]", std::round((xmax-xmin)/xBinSize),xmin,xmax, std::round((ymax-ymin)/yBinSize),ymin,ymax, timeDiffNbin,timeDiffLow,timeDiffHigh);
     utility::makeHisto(my_3d_histos,"nhits_vs_xy", "; X [mm]; Y [MM]", std::round((xmax-xmin)/xBinSize),xmin,xmax, std::round((ymax-ymin)/yBinSize),ymin,ymax, 20, 0, 20);
     utility::makeHisto(my_3d_histos,"amplitude_vs_xy","; X [mm]; Y [mm]",std::round((xmax-xmin)/xBinSize),xmin,xmax, std::round((ymax-ymin)/yBinSize),ymin,ymax, 250,0,500);
     utility::makeHisto(my_3d_histos,"amplitude_vs_xy_tight","; X [mm]; Y [mm]",std::round((xmax-xmin)/xBinSize),xmin,xmax, std::round((ymax-ymin)/yBinSize),ymin,ymax, 250,0,500);
@@ -358,7 +359,8 @@ void Analyze::Loop(NTupleReader& tr, int maxevents)
 
             utility::fillHisto(goodETROCHit,      my_3d_histos, "dt_vs_row_col", row[i],col[i],dtVec[i]);
             utility::fillHisto(goodETROCHit,      my_3d_histos, "dt_vs_xy", x,y,dtVec[i]);
-        }
+            utility::fillHisto(goodETROCHit && row[i] == 5 && col[i] == 9,      my_2d_histos, "dt_vs_BV", voltage,dtVec[i]);
+        }        
         utility::fillHisto(nhits <= 1 && Clock > 0.0 && Clock < 5.0,    my_2d_prof,   "efficiency_vs_xy_ETROC", x,y,nhits == 1);
         utility::fillHisto(pass,                                        my_3d_histos, "nhits_vs_xy", x,y,nhits>0);
         

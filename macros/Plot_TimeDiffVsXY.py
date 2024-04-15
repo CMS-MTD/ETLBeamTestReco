@@ -51,7 +51,7 @@ else:
 outdir = myStyle.GetPlotsDir(outdir, "TimeRes/")
 
 all_histoInfos = [
-    #HistoInfo("dt_vs_row_col", inputfile, "dt_vs_row_col"),
+    HistoInfo("dt_vs_row_col", inputfile, "dt_vs_row_col"),
     HistoInfo("dt_vs_xy", inputfile, "dt_vs_xy"),
 ]
 
